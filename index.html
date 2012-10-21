@@ -1,1 +1,147 @@
-UI Project
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>UI Project for SRS Soft</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UI Project for SRS Soft">
+    <meta name="author" content="Alex K">
+
+    <!--styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            
+          </a>
+          <a class="brand" href="#">UI Project for SRS Soft</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:15%">
+<form class="form">
+      <div class="row">
+<div class="span2"></div>
+<div class="span4">
+   <label class="control-label" for="inputFirstName">First Name:</label>
+ <input type="text" class="input-large" autofocus maxlength="15" id="FirstNameInput" placeholder="John" pattern="[a-zA-Z0-9]{2,}" rel="tooltip" data-placement="right" title="Please enter your First Name" required>
+ 
+  <label class="control-label" for="inputLastName" >Last Name:</label>
+  <input type="text" class="input-large" pattern="[a-zA-Z0-9]{2,}" rel="tooltip" data-placement="right" maxlength="15" id="LastNameInput" placeholder="Doe" title="Please enter your Last Name"  required>
+  
+</div>
+<div class="span4">
+<label class="control-label" for="inputEmail">Date of Birth:</label>
+  <input type="text" class="input-large" id="DOBInput" maxlength="10" placeholder="mm/dd/yyyy" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" rel="tooltip" data-placement="right" title="Please enter Date of Birth"  required>
+</div>
+<div class="span2"></div>
+
+</div>
+
+
+<div class="bgwhite row" style="background-color:#fff;">
+  <div class="span6"></div>
+ <div class="span4"> 
+<input type="submit" value="Submit" id="button" class="btn btn-large btn-success" /> <input type="reset" class="btn btn-large"/>
+</div>
+<div class="span2"></div>
+</div>
+</form>
+<!-- Results -->
+<div class="row sectionsBg">
+<div class="span2"></div>
+<div class="span2"><strong>First Name</strong></div>
+<div class="span2"><strong>Last Name</strong></div>
+<div class="span2"><strong>Date of Birth</strong></div>
+</div>
+<div id="results">
+
+</div>
+
+
+
+    </div> <!-- /container -->
+
+    
+    <!-- Scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+$(document).ready(function(e) {
+$('#button').click(function(event){
+event.preventDefault(); 
+$('#results').append('<div class="stripe row">'+''+'<div class="span1"><i class="icon-user pull-right"></i></div>'+''+'<div class="span2 offset1" style="border-right:1px dashed #333;">' + '' + $('#FirstNameInput').val() + '' + '</div>'+''+'<div class="span2" style="border-right:1px dashed #333;">' + '' + $('#LastNameInput').val() + '' + '</div>' + '' + '<div class="span2">' + '' + $('#DOBInput').val()+''+'</div>');
+$('.sectionsBg').show();
+}) 
+
+
+
+
+$('#FirstNameInput').blur(function()
+{
+    if( $(this).val().length == 0 ) {
+        $('#FirstNameInput').tooltip('show');
+        $('#button').addClass('disabled');
+    }
+
+if( $('#FirstNameInput').val().length >= 1 ) {
+        $('#FirstNameInput').tooltip('hide');
+        $('#button').removeClass('disabled');
+    }
+
+
+});
+
+$('#LastNameInput').blur(function()
+{
+    if( $(this).val().length == 0 ) {
+        $('#LastNameInput').tooltip('show');
+        $('#button').addClass('disabled');
+    }
+
+if( $('#LastNameInput').val().length >= 1 ) {
+        $('#FirstNameInput').tooltip('hide');
+        $('#button').removeClass('disabled');
+    }
+
+
+});
+
+$('#DOBInput').blur(function()
+{
+    if( $(this).val().length == 0 ) {
+        $('#DOBInput').tooltip('show');
+        $('#button').addClass('disabled');
+    }
+
+if( $('#DOBInput').val().length >= 1 ) {
+        $('#DOBInput').tooltip('hide');
+        $('#button').removeClass('disabled');
+    }
+
+
+});
+
+
+});
+</script>       
+
+  </body>
+</html>
