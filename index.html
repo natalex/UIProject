@@ -57,7 +57,13 @@
 
 
 <div class="bgwhite row" style="background-color:#fff;">
-  <div class="span6"></div>
+  <div class="span2"></div>
+  <div class="span4">
+  <div class="progress progress-striped active">
+  <div class="bar bar-success" style="width: 0%;"></div>
+</div>
+
+  </div>
  <div class="span4"> 
 <input type="submit" value="Submit" id="button" class="btn btn-large btn-success" /> <input type="reset" class="btn btn-large"/>
 </div>
@@ -99,11 +105,13 @@ $('#FirstNameInput').blur(function()
     if( $(this).val().length == 0 ) {
         $('#FirstNameInput').tooltip('show');
         $('#button').addClass('disabled');
+         $('.bar').css({'width':'0%'});
     }
 
 if( $('#FirstNameInput').val().length >= 1 ) {
         $('#FirstNameInput').tooltip('hide');
         $('#button').removeClass('disabled');
+        $('.bar').css({'width':'33%'});
     }
 
 
@@ -114,11 +122,13 @@ $('#LastNameInput').blur(function()
     if( $(this).val().length == 0 ) {
         $('#LastNameInput').tooltip('show');
         $('#button').addClass('disabled');
+        $('.bar').css({'width':'33%'});
     }
 
 if( $('#LastNameInput').val().length >= 1 ) {
         $('#FirstNameInput').tooltip('hide');
         $('#button').removeClass('disabled');
+        $('.bar').css({'width':'66%'});
     }
 
 
@@ -129,11 +139,13 @@ $('#DOBInput').blur(function()
     if( $(this).val().length == 0 ) {
         $('#DOBInput').tooltip('show');
         $('#button').addClass('disabled');
+         $('.bar').css({'width':'66%'});
     }
 
 if( $('#DOBInput').val().length >= 1 ) {
         $('#DOBInput').tooltip('hide');
         $('#button').removeClass('disabled');
+         $('.bar').css({'width':'100%'});
     }
 
 
